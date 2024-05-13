@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
         <h2> Add Receipes</h2>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Receipes Name</label>
-      <input name=" recepie_name" required type="text" class="form-control" >
+      <input name=" receipe_name" required type="text" class="form-control" >
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Receipes Descripition</label>
@@ -28,15 +29,14 @@
     <button type="submit"  class="btn btn-success">Add</button>
     
   </form>
-  
 
-  <table class="table">
+  <table class="table my-5">
     <thead>
       <tr>
-        <th scope="col">SL</th>
-        <th scope="col">Receipe name</th>
+        <th scope="col">SL_NO</th>
+        <th scope="col">Receipe Name</th>
         <th scope="col">Receipe Descripition</th>
-        <th scope="col">image</th>
+        <th scope="col">Receipe image</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -44,16 +44,21 @@
       {%for receipe in receipes%}
       <tr>
         <th scope="row">{{forloop.counter}}</th>
-        <td>{{receipe.recepie_name}}</td>
+        <td>{{receipe.receipe_name}}</td>
         <td>{{receipe.text}}</td>
-        <td><img src ="/media/{{receipe.receipe_image}}" style ="height:200px"></td>
         <td>
-          <a href="/delete-receipe/{{receipe.id}}/" class="btn btn-danger">Delete</a>
+          <img src="/media/{{receipe.receipe_image}}" style="height:200px;"></td>
+        <td>
+          <a href="/delete-receipe/{{receipe.id}}/" class="btn btn-danger mt-2 mx-2" >Delete</a>
+          <a href="/update-receipe/{{receipe.id}}/" class="btn btn-success mt-2">Update</a>
         </td>
       </tr>
-      {%endfor%}
+      {% endfor%}
     </tbody>
   </table>
+ 
+
+ 
 </div>
 </body>
 </html>
